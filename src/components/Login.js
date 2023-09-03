@@ -23,7 +23,7 @@ export default function Login() {
     e.preventDefault();
 
     if(validation(email,password)){
-     const resp=await axios.post('http://localhost:5000/login',{email,password},{withCredentials:true});
+     const resp=await axios.post('https://notebuddy-backend.onrender.com/login',{email,password},{withCredentials:true});
       if(resp==="Notfound"){
           alert("please Enter correct Email");
           window.location.reload(); 

@@ -39,7 +39,7 @@ export default function SignUp() {
   const collectdata=async(e)=>{
     e.preventDefault();
        if(validation(name,email,password)){
-        const res=await axios.post('http://localhost:5000/register',{name,email,password},{withCredentials:true});
+        const res=await axios.post('https://notebuddy-backend.onrender.com/register',{name,email,password},{withCredentials:true});
         if(res.data==="exist"){
          alert("Email Already Exist");
          navigate("/login");

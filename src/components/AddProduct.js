@@ -39,7 +39,7 @@ export default function AddProduct() {
     e.preventDefault();
 
     if(validation(semester,subject,status)){
-      const res= await axios.post("http://localhost:5000/addproduct",{semester,subject,status},{withCredentials:true});
+      const res= await axios.post("https://notebuddy-backend.onrender.com/addproduct",{semester,subject,status},{withCredentials:true});
       console.warn(res);
       setsemester("");
       setsubject("");

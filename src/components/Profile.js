@@ -18,7 +18,7 @@ export default function Profile() {
   }, []);
 
   const getmyproducts = async () => {
-    let result = await fetch("http://localhost:5000/myproducts", {
+    let result = await fetch("https://notebuddy-backend.onrender.com/myproducts", {
       credentials: "include",
     });
     result = await result.json();
@@ -27,7 +27,7 @@ export default function Profile() {
 
   const deleteproduct = async (id) => {
     const result = await axios.delete(
-      `http://localhost:5000/deleteproduct/${id}`
+      `https://notebuddy-backend.onrender.com/deleteproduct/${id}`
     );
     getmyproducts();
   };

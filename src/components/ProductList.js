@@ -20,14 +20,14 @@ export default function ProductList() {
   }, []);
 
   const getproducts = async () => {
-    let result = await axios.get("http://localhost:5000/products",{withCredentials:true});
+    let result = await axios.get("https://notebuddy-backend.onrender.com/products",{withCredentials:true});
     setproducts(result.data);
   };
 
   const searchhandle = async (e) => {
     const key = e.target.value;
     if (key) {
-      const result = await axios.get(`http://localhost:5000/search/${key}`);
+      const result = await axios.get(`https://notebuddy-backend.onrender.com/search/${key}`);
       if (result) {
         setproducts(result.data);
       }
@@ -40,7 +40,7 @@ const senddata=async(semester,subject,email)=>{
   console.warn(semester,subject,email);
   try {
     navigate("/ConfirmOTP");
-    const resp=await axios.post('http://localhost:5000/getdata',{semester,subject,email},{withCredentials:true});
+    const resp=await axios.post('https://notebuddy-backend.onrender.com/getdata',{semester,subject,email},{withCredentials:true});
     console.log(resp);
     
   } catch (error) {

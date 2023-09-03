@@ -25,7 +25,7 @@ useEffect(()=>{
 
 const getproductdetails=async()=>{
     console.warn(params);
-    let result=await axios.get(`http://localhost:5000/getproducttoupdate/${params.id}`);
+    let result=await axios.get(`https://notebuddy-backend.onrender.com/getproducttoupdate/${params.id}`);
     console.warn(result.data);
     result=result.data;
     setsemester(result.semester);
@@ -36,7 +36,7 @@ const getproductdetails=async()=>{
   const updatedata=async(e)=>{
     // console.warn({name,price,category,company})
     e.preventDefault();
-    const result= await axios.put(`http://localhost:5000/updateproduct/${params.id}`,{semester,subject,status});
+    const result= await axios.put(`https://notebuddy-backend.onrender.com/updateproduct/${params.id}`,{semester,subject,status});
      navigate('/profile');
      console.warn(result.data);
   }
