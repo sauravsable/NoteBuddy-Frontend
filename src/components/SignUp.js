@@ -40,7 +40,6 @@ export default function SignUp() {
     e.preventDefault();
        if(validation(name,email,password)){
         const res=await axios.post('http://localhost:5000/register',{name,email,password},{withCredentials:true});
- 
         if(res.data==="exist"){
          alert("Email Already Exist");
          navigate("/login");
@@ -50,13 +49,13 @@ export default function SignUp() {
          setemail("");
          setpassword("");
          localStorage.setItem("user",res.data.name);
-         navigate("/");
+         navigate("/home");
         }
        }
   }
 
   return (
-<div className=''>
+<div className='mt-20'>
 <div className="flex flex-col items-center min-h-screen pt-6 sm:justify-center sm:pt-0 bg-gray-50 ">
     <div>
         <a href="/">
@@ -78,7 +77,7 @@ export default function SignUp() {
                     <input
                         type="text"
                         name="name"
-                        className="block w-full mt-1 border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                        className="block w-full mt-1 px-2 border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         onChange={(e)=>setname(e.target.value)} value={name}
                     />
                     {errors.name && <span className='text-red-500'>{errors.name}</span>}
@@ -95,7 +94,7 @@ export default function SignUp() {
                     <input
                         type="email"
                         name="email"
-                        className="block w-full mt-1 border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                        className="block w-full mt-1 px-2 border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         onChange={(e)=>setemail(e.target.value)} value={email}
                     />
                     {errors.email && <span className='text-red-500'>{errors.email}</span>}
@@ -112,7 +111,7 @@ export default function SignUp() {
                     <input
                         type="password"
                         name="password"
-                        className="block w-full mt-1 border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                        className="block w-full mt-1 px-2 border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                         onChange={(e)=>setpassword(e.target.value)} value={password}
                     />
                     {errors.password && <span className='text-red-500'>{errors.password}</span>}
