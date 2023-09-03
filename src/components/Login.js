@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import axios from 'axios';
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -35,31 +34,41 @@ export default function Login() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     if (validation()) {
       try {
-        const response = await axios.post(
-          'http://localhost:5000/login',
-          formData,
-          { withCredentials: true }
-        );
-
-        if (response.data === 'Notfound') {
-          alert('Please enter a correct Email');
-          return;
-        } else if (response.data === 'Notmatch') {
-          alert('Please enter a correct Password');
-          return;
+        const response = await fetch('https://notebuddy-backend.onrender.com/login', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include', // This sends cookies with the request
+          body: JSON.stringify(formData),
+        });
+  
+        if (response.status === 200) {
+          const data = await response.json();
+  
+          if (data === 'Notfound') {
+            alert('Please enter a correct Email');
+            return;
+          } else if (data === 'Notmatch') {
+            alert('Please enter a correct Password');
+            return;
+          }
+  
+          console.warn(data.name);
+          localStorage.setItem('user', data.name);
+          navigate('/home');
+        } else {
+          console.error('Error:', response.statusText);
         }
-
-        console.warn(response.data.name);
-        localStorage.setItem('user', response.data.name);
-        navigate('/home');
       } catch (error) {
         console.error('Error:', error);
       }
     }
   };
+  
 
   return (
     <div className="mt-24">

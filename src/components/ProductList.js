@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
-import axios from "axios";
 import { TERipple } from "tw-elements-react";
 
 export default function ProductList() {
@@ -17,12 +16,25 @@ export default function ProductList() {
 
   const getproducts = async () => {
     try {
-      const result = await axios.get("http://localhost:5000/products", { withCredentials: true });
-      setproducts(result.data);
+      const response = await fetch("https://notebuddy-backend.onrender.com/products", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include", // This sends cookies with the request
+      });
+  
+      if (response.status === 200) {
+        const data = await response.json();
+        setproducts(data);
+      } else {
+        console.error("Error fetching products:", response.statusText);
+      }
     } catch (error) {
-      console.error('Error fetching products:', error);
+      console.error("Error fetching products:", error);
     }
   };
+  
 
   useEffect(() => {
     getproducts();
@@ -31,26 +43,54 @@ export default function ProductList() {
   const searchhandle = async (e) => {
     const key = e.target.value;
     if (key) {
-      const result = await axios.get(`http://localhost:5000/search/${key}`);
-      if (result) {
-        setproducts(result.data);
+      try {
+        const response = await fetch(`https://notebuddy-backend.onrender.com/search/${key}`, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include', // This sends cookies with the request
+        });
+  
+        if (response.status === 200) {
+          const data = await response.json();
+          setproducts(data);
+        } else {
+          console.error('Error fetching search results:', response.statusText);
+        }
+      } catch (error) {
+        console.error('Error fetching search results:', error);
       }
     } else {
       getproducts();
     }
-};
+  };
+  
 
-const senddata=async(semester,subject,email)=>{
-  console.warn(semester,subject,email);
-  try {
-    navigate("/ConfirmOTP");
-    const resp=await axios.post('http://localhost:5000/getdata',{semester,subject,email},{withCredentials:true});
-    console.log(resp);
-    
-  } catch (error) {
-    console.error("Error sending GET request:", error);
-  }
-};
+  const senddata = async (semester, subject, email) => {
+    console.warn(semester, subject, email);
+    try {
+      navigate("/ConfirmOTP");
+      const response = await fetch('https://notebuddy-backend.onrender.com/getdata', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include', // This sends cookies with the request
+        body: JSON.stringify({ semester, subject, email }),
+      });
+  
+      if (response.status === 200) {
+        const data = await response.json();
+        console.log(data);
+      } else {
+        console.error('Error sending POST request:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error sending POST request:', error);
+    }
+  };
+  
 
 
   return (

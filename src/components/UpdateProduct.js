@@ -1,4 +1,3 @@
-import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 
@@ -20,19 +19,33 @@ export default function UpdateProduct() {
 
   const getproductdetails = async () => {
     try {
-      const result = await axios.get(
-        `http://localhost:5000/getproducttoupdate/${params.id}`
+      const response = await fetch(
+        `https://notebuddy-backend.onrender.com/getproducttoupdate/${params.id}`,
+        {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include', // This sends cookies with the request
+        }
       );
-      const { semester, subject, status } = result.data;
-      setFormData({
-        semester,
-        subject,
-        status,
-      });
+  
+      if (response.status === 200) {
+        const data = await response.json();
+        const { semester, subject, status } = data;
+        setFormData({
+          semester,
+          subject,
+          status,
+        });
+      } else {
+        console.error('Error:', response.statusText);
+      }
     } catch (error) {
       console.error('Error:', error);
     }
   };
+  
   
   useEffect(() => {
     getproductdetails();
@@ -40,17 +53,32 @@ export default function UpdateProduct() {
 
   const updatedata = async (e) => {
     e.preventDefault();
+  
     try {
-      const result = await axios.put(
-        `http://localhost:5000/updateproduct/${params.id}`,
-        formData
+      const response = await fetch(
+        `https://notebuddy-backend.onrender.com/updateproduct/${params.id}`,
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include', // This sends cookies with the request
+          body: JSON.stringify(formData),
+        }
       );
-      console.warn(result.data);
-      navigate('/profile');
+  
+      if (response.status === 200) {
+        const data = await response.json();
+        console.warn(data);
+        navigate('/profile');
+      } else {
+        console.error('Error:', response.statusText);
+      }
     } catch (error) {
       console.error('Error:', error);
     }
   };
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;

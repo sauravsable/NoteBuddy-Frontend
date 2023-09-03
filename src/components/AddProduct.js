@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 export default function AddProduct() {
@@ -39,28 +38,38 @@ export default function AddProduct() {
 
   const insertData = async (e) => {
     e.preventDefault();
-
+  
     if (validation()) {
       try {
-        const res = await axios.post(
-          'http://localhost:5000/addproduct',
-          formData,
-          { withCredentials: true }
-        );
-        console.warn(res);
-
-        setFormData({
-          semester: '',
-          subject: '',
-          status: '',
+        const response = await fetch('https://notebuddy-backend.onrender.com/addproduct', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include', // This sends cookies with the request
+          body: JSON.stringify(formData),
         });
-
-        navigate('/profile');
+  
+        if (response.status === 200) {
+          const data = await response.json();
+          console.warn(data);
+  
+          setFormData({
+            semester: '',
+            subject: '',
+            status: '',
+          });
+  
+          navigate('/profile');
+        } else {
+          console.error('Error adding product:', response.statusText);
+        }
       } catch (error) {
-        console.error('Error:', error);
+        console.error('Error adding product:', error);
       }
     }
   };
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;

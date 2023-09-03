@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link,useNavigate } from "react-router-dom";
-import axios from "axios";
 import { TERipple } from "tw-elements-react";
 export default function Profile() {
   const [myproducts, setmyproducts] = useState([{}]);
@@ -18,7 +17,7 @@ export default function Profile() {
   }, []);
 
   const getmyproducts = async () => {
-    let result = await fetch("http://localhost:5000/myproducts", {
+    let result = await fetch("https://notebuddy-backend.onrender.com/myproducts", {
       credentials: "include",
     });
     result = await result.json();
@@ -26,13 +25,26 @@ export default function Profile() {
   };
 
   const deleteproduct = async (id) => {
-    const result = await axios.delete(
-      `http://localhost:5000/deleteproduct/${id}`
-    );
-    console.log(result);
-    getmyproducts();
+    try {
+      const response = await fetch(`https://notebuddy-backend.onrender.com/deleteproduct/${id}`, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      });
+  
+      if (response.status === 200) {
+        const data = await response.json();
+        console.log(data);
+        getmyproducts();
+      } else {
+        console.error('Error deleting product:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error deleting product:', error);
+    }
   };
-
+  
   return (
     <>
       <div className="mt-28 items-center m-auto lg:w-96 ">

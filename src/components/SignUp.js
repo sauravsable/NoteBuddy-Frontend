@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 
 export default function SignUp() {
@@ -39,30 +38,42 @@ export default function SignUp() {
 
   const collectData = async (e) => {
     e.preventDefault();
+  
     if (validation()) {
       try {
-        const res = await axios.post(
-          'http://localhost:5000/register',
-          formData,
-          { withCredentials: true }
-        );
-        if (res.data === 'exist') {
-          alert('Email already exists');
-          navigate('/login');
+        const response = await fetch('https://notebuddy-backend.onrender.com/register', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          credentials: 'include', // This sends cookies with the request
+          body: JSON.stringify(formData),
+        });
+  
+        if (response.status === 200) {
+          const data = await response.json();
+  
+          if (data === 'exist') {
+            alert('Email already exists');
+            navigate('/login');
+          } else {
+            setFormData({
+              name: '',
+              email: '',
+              password: '',
+            });
+            localStorage.setItem('user', data.name);
+            navigate('/home');
+          }
         } else {
-          setFormData({
-            name: '',
-            email: '',
-            password: '',
-          });
-          localStorage.setItem('user', res.data.name);
-          navigate('/home');
+          console.error('Error:', response.statusText);
         }
       } catch (error) {
         console.error('Error:', error);
       }
     }
   };
+  
 
   const handleChange = (e) => {
     const { name, value } = e.target;
