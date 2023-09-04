@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/static/css/main.ad8e6409.css",
+    "main.js": "/static/js/main.ae6fad42.js",
+    "static/media/best-about-us-pages-removebg-preview.png": "/static/media/best-about-us-pages-removebg-preview.f205dd0c0164071147dc.png",
+    "static/media/throwing notes.png": "/static/media/throwing notes.d15bd956a646b02716bd.png",
+    "index.html": "/index.html",
+    "main.ad8e6409.css.map": "/static/css/main.ad8e6409.css.map",
+    "main.ae6fad42.js.map": "/static/js/main.ae6fad42.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ad8e6409.css",
+    "static/js/main.ae6fad42.js"
+  ]
+}
