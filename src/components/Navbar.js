@@ -9,7 +9,7 @@ export default function Navbar() {
 
   const logout=async()=>{
     localStorage.clear();
-    await axios.get('https://notebuddy-backend.onrender.com/logout');
+    await axios.get('http://localhost:5000/logout');
     navigate('/signup');
   }
 

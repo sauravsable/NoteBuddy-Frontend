@@ -17,7 +17,7 @@ export default function Profile() {
   }, []);
 
   const getmyproducts = async () => {
-    let result = await fetch("https://notebuddy-backend.onrender.com/myproducts", {
+    let result = await fetch("http://localhost:5000/myproducts", {
       credentials: "include",
     });
     result = await result.json();
@@ -26,7 +26,7 @@ export default function Profile() {
 
   const deleteproduct = async (id) => {
     try {
-      const response = await fetch(`https://notebuddy-backend.onrender.com/deleteproduct/${id}`, {
+      const response = await fetch(`http://localhost:5000/deleteproduct/${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -50,11 +50,11 @@ export default function Profile() {
       <div className="mt-28 items-center m-auto lg:w-96 ">
         <h1 className="text-3xl font-extrabold text-center mb-4 text-blue-950">My Notes</h1>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 mb-4 lg:px-16">
+      <div className="grid grid-cols-1 mx-6 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 mb-4 lg:px-16">
         {myproducts.length > 0 ? (
           myproducts.map((item, index) => (
             <div key={index} className="col-span-1 my-3">
-              <div className="rounded-lg bg-gray-200 text-center shadow-md dark:bg-neutral-700">
+              <div className="rounded-lg bg-gray-100 text-center shadow-md dark:bg-neutral-700">
                 <div className="border-b-2 border-neutral-100 px-6 py-3 dark:border-neutral-600 dark:text-neutral-50">
                   Semester - {item.semester}
                 </div>

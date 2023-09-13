@@ -10,6 +10,7 @@ export default function Login() {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
+    e.preventDefault();
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -37,7 +38,7 @@ export default function Login() {
   
     if (validation()) {
       try {
-        const response = await fetch('https://notebuddy-backend.onrender.com/login', {
+        const response = await fetch('http://localhost:5000/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -124,7 +125,7 @@ export default function Login() {
             <div className="flex items-center mt-5">
               <button
                 className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"
-                onClick={handleSubmit}
+                onClick={(e)=>handleSubmit(e)}
               >
                 Login
               </button>

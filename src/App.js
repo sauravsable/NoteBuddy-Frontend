@@ -3,14 +3,14 @@ import React, { useEffect } from 'react';
 import { BrowserRouter,Routes,Route} from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import SignUp from './components/SignUp';
-import Login from './components/Login';
-import AddProduct from './components/AddProduct';
-import ProductList from './components/ProductList';
-import UpdateProduct from './components/UpdateProduct';
-import Profile from './components/Profile';
-import Home from './components/Home';
-import ConfirmOTP from './components/ConfirmOTP';
+import SignUp from './pages/SignUp';
+import Login from './pages/Login';
+import AddProduct from './pages/AddProduct';
+import ProductList from './pages/ProductList';
+import UpdateProduct from './pages/UpdateProduct';
+import Profile from './pages/Profile';
+import Home from './pages/Home';
+import ConfirmOTP from './pages/ConfirmOTP';
 function App() {
   useEffect(() => {
     const handleBeforeUnload = () => {

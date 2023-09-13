@@ -41,7 +41,7 @@ export default function SignUp() {
   
     if (validation()) {
       try {
-        const response = await fetch('https://notebuddy-backend.onrender.com/register', {
+        const response = await fetch('http://localhost:5000/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -156,7 +156,7 @@ export default function SignUp() {
             <div className="flex items-center mt-5">
               <button
                 className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"
-                onClick={collectData}
+                onClick={(e)=>collectData(e)}
               >
                 Register
               </button>

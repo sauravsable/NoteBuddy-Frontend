@@ -41,7 +41,7 @@ export default function AddProduct() {
   
     if (validation()) {
       try {
-        const response = await fetch('https://notebuddy-backend.onrender.com/addproduct', {
+        const response = await fetch('http://localhost:5000/addproduct', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -153,7 +153,7 @@ export default function AddProduct() {
               <button
                 type="submit"
                 className="inline-flex items-center px-4 py-2 ml-4 text-xs font-semibold tracking-widest text-white uppercase transition duration-150 ease-in-out bg-gray-900 border border-transparent rounded-md active:bg-gray-900 false"
-                onClick={insertData}
+                onClick={(e)=>insertData(e)}
               >
                 Add
               </button>
