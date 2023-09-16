@@ -12,16 +12,16 @@ export default function ProductList() {
     if(data==null){
     navigate("/");
     }
-  })
+  },[navigate])
 
   const getproducts = async () => {
     try {
-      const response = await fetch("http://localhost:5000/products", {
+      const response = await fetch("https://notebuddy-backend.onrender.com/products", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
         },
-        credentials: "include", // This sends cookies with the request
+        credentials: "include",
       });
   
       if (response.status === 200) {
@@ -44,12 +44,12 @@ export default function ProductList() {
     const key = e.target.value;
     if (key) {
       try {
-        const response = await fetch(`http://localhost:5000/search/${key}`, {
+        const response = await fetch(`https://notebuddy-backend.onrender.com/search/${key}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
           },
-          credentials: 'include', // This sends cookies with the request
+          credentials: 'include',
         });
   
         if (response.status === 200) {
@@ -67,16 +67,16 @@ export default function ProductList() {
   };
   
 
-  const senddata = async (semester, subject, email) => {
-    console.warn(semester, subject, email);
+  const senddata = async (email,subject,semester) => {
+    console.warn(email,subject,semester);
     try {
-      const response = await fetch('http://localhost:5000/getdata', {
+      const response = await fetch('https://notebuddy-backend.onrender.com/getdata', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        credentials: 'include', // This sends cookies with the request
-        body: JSON.stringify({ semester, subject, email }),
+        credentials: 'include',
+        body: JSON.stringify({email,subject,semester}),
       });
       navigate("/ConfirmOTP");
       if (response.status === 200) {
@@ -122,7 +122,7 @@ export default function ProductList() {
               <button
                 type="button"
                 className="inline-block text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600 px-6 pb-2 pt-2.5 text-xs font-medium leading-normal shadow-md ease-in-out hover:bg-primary-600 hover:shadow-lg focus:bg-primary-600 focus:shadow-lg  focus:ring-0 active:bg-primary-700 active:shadow-lg dark:shadow-md dark:hover:shadow-lg dark:focus:shadow-lg dark:active:shadow-lg"
-                onClick={()=>senddata(item.semester,item.subject,item.email)}
+                onClick={()=>senddata(item.email,item.subject,item.semester)}
               >
                 Get In Touch
               </button>

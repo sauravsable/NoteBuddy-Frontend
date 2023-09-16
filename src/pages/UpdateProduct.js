@@ -10,17 +10,18 @@ export default function UpdateProduct() {
   const params = useParams();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const data = localStorage.getItem('user');
-    if (data == null) {
-      navigate('/');
+  useEffect(()=>{
+    let data=localStorage.getItem("user");
+    console.log(data);
+    if(data==null){
+    navigate("/");
     }
-  }, [navigate]);
+  },[navigate])
 
   const getproductdetails = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/getproducttoupdate/${params.id}`,
+        `https://notebuddy-backend.onrender.com/getproducttoupdate/${params.id}`,
         {
           method: 'GET',
           headers: {
@@ -56,7 +57,7 @@ export default function UpdateProduct() {
   
     try {
       const response = await fetch(
-        `http://localhost:5000/updateproduct/${params.id}`,
+        `https://notebuddy-backend.onrender.com/updateproduct/${params.id}`,
         {
           method: 'PUT',
           headers: {

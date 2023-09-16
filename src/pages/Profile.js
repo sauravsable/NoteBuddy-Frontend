@@ -4,20 +4,20 @@ import { TERipple } from "tw-elements-react";
 export default function Profile() {
   const [myproducts, setmyproducts] = useState([{}]);
   const navigate=useNavigate();
+  
   useEffect(()=>{
     let data=localStorage.getItem("user");
     console.log(data);
     if(data==null){
     navigate("/");
     }
-  });
-
+  })
   useEffect(() => {
     getmyproducts();
   }, []);
 
   const getmyproducts = async () => {
-    let result = await fetch("http://localhost:5000/myproducts", {
+    let result = await fetch("https://notebuddy-backend.onrender.com/myproducts", {
       credentials: "include",
     });
     result = await result.json();
@@ -26,7 +26,7 @@ export default function Profile() {
 
   const deleteproduct = async (id) => {
     try {
-      const response = await fetch(`http://localhost:5000/deleteproduct/${id}`, {
+      const response = await fetch(`https://notebuddy-backend.onrender.com/deleteproduct/${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

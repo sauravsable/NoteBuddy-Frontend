@@ -13,7 +13,7 @@ export default function Footer() {
           <li>
             <Typography
               as="a"
-              href="#"
+              href="/"
               color="white"
               className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
             >
@@ -23,7 +23,7 @@ export default function Footer() {
           <li>
             <Typography
               as="a"
-              href="#"
+              href="/about"
               color="white"
               className="font-normal transition-colors hover:text-blue-500 focus:text-blue-500"
             >

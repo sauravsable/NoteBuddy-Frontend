@@ -19,14 +19,15 @@ export default function Home() {
             />
           </div>
           <div className="lg:w-1/2 lg:pl-8 mt-12 lg:mt-20 sm:mt-20 sm:pb-0">
-            <h2 className="text-3xl font-extrabold text-black sm:text-4xl">
+            <h2 className="text-3xl font-extrabold text-black sm:text-4xl ">
               Welcome to NoteBuddy!...
             </h2>
             <div className="mt-6 text-xl text-black">
               <p>
                 Your subject notes may seem useless once the semester/year ends,
-                but before you toss them in the trash, consider this: those
-                notes can actually be quite valuable.They can help you study,
+                but before you toss them in the trash, consider this:- 
+                 <span className="text-blue-800 font-bold">Those notes can actually be quite valuable.</span>
+                 They can help you study,
                 assist others, and even save the planet a tiny bit. Keep them
                 organized, and you'll thank yourself in the future.
               </p>

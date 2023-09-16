@@ -11,17 +11,16 @@ import UpdateProduct from './pages/UpdateProduct';
 import Profile from './pages/Profile';
 import Home from './pages/Home';
 import ConfirmOTP from './pages/ConfirmOTP';
+import Services from './components/Services'
+import About from './components/About'
+import FAQ from './components/FAQ'
+import Contact from './components/Contact'
+
 function App() {
   useEffect(() => {
-    const handleBeforeUnload = () => {
+    window.addEventListener('beforeunload', async () => {
       localStorage.clear();
-    };
-
-    window.addEventListener('beforeunload', handleBeforeUnload);
-
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-    };
+    });
   }, []);
 
   const checkuser=()=>{
@@ -41,6 +40,10 @@ function App() {
         <Route path="/logout" element={<h1>Logout</h1>}/>
         <Route path="/profile" element={<Profile/>}/>
         <Route path="/ConfirmOTP" element={<ConfirmOTP/>} />
+        <Route path="/service" element={<Services/>} />
+        <Route path="/about" element={<About/>} />
+        <Route path="/faq" element={<FAQ/>} />
+        <Route path="/contact" element={<Contact/>} />
         <Route path="/signup" element={checkuser()===null?<SignUp/>:<ProductList/>}/>
         <Route path="/login" element={checkuser()===null?<Login/>:<ProductList/>}/>
       </Routes>

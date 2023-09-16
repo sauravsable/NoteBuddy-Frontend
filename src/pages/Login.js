@@ -38,7 +38,7 @@ export default function Login() {
   
     if (validation()) {
       try {
-        const response = await fetch('http://localhost:5000/login', {
+        const response = await fetch('https://notebuddy-backend.onrender.com/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -57,9 +57,11 @@ export default function Login() {
             alert('Please enter a correct Password');
             return;
           }
-  
-          console.warn(data.name);
           localStorage.setItem('user', data.name);
+          setFormData({
+            email: '',
+            password: '',
+          });
           navigate('/home');
         } else {
           console.error('Error:', response.statusText);

@@ -11,7 +11,7 @@ const ConfirmOTP = () => {
     if(data==null){
     navigate("/");
     }
-  })
+  },[navigate])
 
   const handleInputChange = (event) => {
     const { value } = event.target;
@@ -23,7 +23,7 @@ const ConfirmOTP = () => {
     // You can add your OTP verification logic here
     console.log('OTP Submitted:', otp);
     // Reset the OTP input
-    const res =await (await fetch("http://localhost:5000/confirmotp",{method:'POST',credentials:'include',body:new URLSearchParams({otp})})).json();
+    const res =await (await fetch("https://notebuddy-backend.onrender.com/confirmotp",{method:'POST',credentials:'include',body:new URLSearchParams({otp})})).json();
     console.log(res);
     if(res==="true"){
       alert("Your  Resquest has been send to the provider.");

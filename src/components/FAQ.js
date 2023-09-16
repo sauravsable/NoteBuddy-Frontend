@@ -30,7 +30,6 @@ export default function FAQ() {
         answer:
           "You can contact our customer support team through the contact information provided on our website. We're here to help with any questions or concerns you may have.",
       },
-      // Add more FAQ items as needed
     ];
   
     const toggleFAQ = (index) => {
@@ -42,7 +41,7 @@ export default function FAQ() {
     };
   return (
     <section id="faq" className="bg-green-400 py-10">
-    <div className="container px-4  m-auto  w-5/6 py-8 bg-green-200  object-cover rounded-lg shadow-lg">
+    <div className="container px-4 m-auto w-5/6 py-8 bg-green-200 object-cover rounded-lg shadow-lg">
       <h1 className="text-3xl font-semibold mb-6">
         Frequently Asked Questions
       </h1>

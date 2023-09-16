@@ -16,7 +16,7 @@ export default function Services() {
         {
           title: "Environmental Responsibility",
           description:
-            "We are committed to sustainability. By distributing printed notes, we reduce the environmental impact associated with excessive paper waste.",
+            "We are committed to sustainability. By distributing notes, we reduce the environmental impact associated with excessive paper waste.",
         },
       ];
     

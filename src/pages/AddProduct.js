@@ -10,12 +10,13 @@ export default function AddProduct() {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const data = localStorage.getItem('user');
-    if (data == null) {
-      navigate('/');
+  useEffect(()=>{
+    let data=localStorage.getItem("user");
+    console.log(data);
+    if(data==null){
+    navigate("/");
     }
-  }, [navigate]);
+  },[navigate])
 
   const validation = () => {
     const newErrors = {};
@@ -41,12 +42,12 @@ export default function AddProduct() {
   
     if (validation()) {
       try {
-        const response = await fetch('http://localhost:5000/addproduct', {
+        const response = await fetch('https://notebuddy-backend.onrender.com/addproduct', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          credentials: 'include', // This sends cookies with the request
+          credentials: 'include',
           body: JSON.stringify(formData),
         });
   
