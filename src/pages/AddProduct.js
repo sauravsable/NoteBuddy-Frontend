@@ -42,13 +42,14 @@ export default function AddProduct() {
   
     if (validation()) {
       try {
+        const userId=localStorage.getItem('userId');
         const response = await fetch('https://notebuddy-backend.onrender.com/addproduct', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           credentials: 'include',
-          body: JSON.stringify(formData),
+          body: JSON.stringify({formData,userId}),
         });
   
         if (response.status === 200) {

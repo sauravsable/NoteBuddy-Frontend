@@ -12,7 +12,7 @@ export default function SignUp() {
 
   const validation = () => {
     const newErrors = {};
-    const emailPattern = /^[0-9]+@iiitu\.ac\.in$/;
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
 
     if (!formData.name) {
@@ -22,7 +22,7 @@ export default function SignUp() {
     if (!formData.email) {
       newErrors.email = 'Email is required';
     } else if (!emailPattern.test(formData.email)) {
-      newErrors.email = 'Please enter your Institute Email ID';
+      newErrors.email = 'Please enter your correct Email ID';
     }
 
     if (!formData.password) {
@@ -64,7 +64,8 @@ export default function SignUp() {
             });
             alert("User Successfully Registered");
             localStorage.setItem('user', data.name);
-            navigate('/login');
+            localStorage.setItem('userId',data._id);
+            navigate('/home');
           }
         } else {
           console.error('Error:', response.statusText);

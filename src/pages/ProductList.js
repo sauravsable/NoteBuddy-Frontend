@@ -16,17 +16,19 @@ export default function ProductList() {
 
   const getproducts = async () => {
     try {
-      const response = await fetch("https://notebuddy-backend.onrender.com/products", {
-        method: "GET",
+      const userId=localStorage.getItem('userId');
+      let response = await fetch("https://notebuddy-backend.onrender.com/products", {
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         credentials: "include",
+        body: JSON.stringify({userId}),
       });
   
       if (response.status === 200) {
-        const data = await response.json();
-        setproducts(data);
+        response = await response.json();
+        setproducts(response);
       } else {
         console.error("Error fetching products:", response.statusText);
       }

@@ -58,6 +58,7 @@ export default function Login() {
             return;
           }
           localStorage.setItem('user', data.name);
+          localStorage.setItem('userId',data._id);
           setFormData({
             email: '',
             password: '',

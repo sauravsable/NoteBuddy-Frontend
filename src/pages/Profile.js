@@ -17,11 +17,27 @@ export default function Profile() {
   }, []);
 
   const getmyproducts = async () => {
-    let result = await fetch("https://notebuddy-backend.onrender.com/myproducts", {
-      credentials: "include",
-    });
-    result = await result.json();
-    setmyproducts(result);
+    try {
+      const userId=localStorage.getItem('userId');
+      const response = await fetch("https://notebuddy-backend.onrender.com/myproducts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        credentials: "include",
+        body: JSON.stringify({userId}),
+      });
+  
+      if (response.status === 200) {
+        const data = await response.json();
+        console.log(data);
+        setmyproducts(data);
+      } else {
+        console.error("Error fetching products:", response.statusText);
+      }
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
   };
 
   const deleteproduct = async (id) => {
