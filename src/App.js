@@ -30,7 +30,7 @@ function App() {
     return data;
   }
   return (
-    <div className="App">
+    <div className="App backky">
       <BrowserRouter>
       <Navbar/>
       <Routes>

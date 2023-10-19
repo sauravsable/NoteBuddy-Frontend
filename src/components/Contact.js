@@ -73,17 +73,17 @@ export default function Contact() {
         }
       };
   return (
-    <section className="bg-blue-700 py-12 px-4 sm:px-6 lg:px-8">
+    <section className=" py-20 px-4 sm:px-6 lg:px-8">
     <div className="max-w-7xl mx-auto">
       <div className="mt-6 grid grid-cols-1 gap-8 md:grid-cols-2">
         <div className="md:col-span-1 lg:ml-10">
-          <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
+          <h2 className="text-3xl  heading font-extrabold text-white sm:text-4xl">
             Contact Us
           </h2>
-          <h3 className="text-lg font-medium text-white mt-4">
+          <h3 className="text-lg text-gray-500 font-medium  mt-4">
             Get in Touch
           </h3>
-          <p className="mt-1 text-white">
+          <p className="mt-1 text-gray-500 text-justify w-9/12 ">
             Got questions or feedback? We'd love to hear from you! Reach out
             to our friendly team at below contact details, and we'll be
             happy to assist you.
@@ -91,26 +91,26 @@ export default function Contact() {
           <div className="mt-6 flex items-center">
             <FontAwesomeIcon
               icon={faEnvelope}
-              className="text-yellow-500 text-2xl mr-2"
+              className="text-gray-500 text-2xl mr-2"
             />
-            <h4 className="text-md font-medium text-white inline-block">
-              Email
+            <h4 className="text-md text-gray-500 font-medium  inline-block">
+              Email :
             </h4>
-            <p className="mt-1 text-white ml-2">NoteBuddy@gmail.com</p>
+            <p className="mt-1 text-gray-500  ml-2">NoteBuddy@gmail.com</p>
           </div>
           <div className="mt-6 flex items-center">
             <FontAwesomeIcon
               icon={faPhone}
-              className="text-yellow-500 text-2xl mr-2"
+              className="text-gray-500 text-2xl mr-2"
             />
-            <h4 className="text-md font-medium text-white inline-block">
-              Phone
+            <h4 className="text-md text-gray-500 font-medium  inline-block">
+              Phone :
             </h4>
-            <p className="mt-1 text-white ml-2">+91-98xx58xx26</p>
+            <p className="mt-1  text-gray-500 ml-2">+91-98xx58xx26</p>
           </div>
         </div>
         <div className="md:col-span-1 lg:pr-10">
-          <h3 className="text-3xl  font-extrabold text-white">
+          <h3 className="text-3xl heading text-gray-500  font-extrabold ">
             Send Us a Message
           </h3>
           <form className="mt-4">
@@ -126,7 +126,7 @@ export default function Contact() {
                 id="name"
                 name="name"
                 className="mt-1 p-2 w-full rounded-md border-gray-300 shadow-sm focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
-                placeholder="John Doe"
+                placeholder="Enter your name"
                 onChange={handleChange}
                 value={formData.name}
               />
@@ -146,7 +146,7 @@ export default function Contact() {
                 id="email"
                 name="email"
                 className="mt-1 p-2 w-full rounded-md border-gray-300 shadow-sm focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
-                placeholder="john@example.com"
+                placeholder="Enter your email id"
                 onChange={handleChange}
                 value={formData.email}
               />
@@ -177,7 +177,7 @@ export default function Contact() {
             <div className="text-right">
               <button
                 type="submit"
-                className="inline-flex items-center px-4 py-2 border border-transparent text-base font-bold rounded-md text-black bg-amber-500 hover:bg-white hover:text-black focus:outline-none focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
+                className="btnValue px-4 py-2 rounded-2xl text-white font-bold "
                 onClick={(e)=>{sendmessage(e)}}
               >
                 Send Message
