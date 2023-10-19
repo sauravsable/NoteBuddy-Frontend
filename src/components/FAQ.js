@@ -40,22 +40,22 @@ export default function FAQ() {
       }
     };
   return (
-    <section id="faq" className="bg-green-400 py-10">
-    <div className="container px-4 m-auto w-5/6 py-8 bg-green-200 object-cover rounded-lg shadow-lg">
-      <h1 className="text-3xl font-semibold mb-6">
+    <section id="faq" className=" py-24">
+    <div className="container faq shadow-inner shadow-2xl px-4 m-auto w-5/6 py-8  object-cover rounded-lg shadow-lg">
+      <h1 className="heading text-3xl font-semibold mb-6">
         Frequently Asked Questions
       </h1>
       <div className="space-y-4">
         {faqData.map((faq, index) => (
           <div
             key={index}
-            className="p-4 rounded-lg text-black font-semibold"
+            className="p-4 text-gray-500 rounded-lg text-black font-semibold"
           >
             <div
-              className="flex justify-between cursor-pointer"
+              className="flex text-gray-500 font-semibold justify-between cursor-pointer"
               onClick={() => toggleFAQ(index)}
             >
-              <h2 className="text-lg font-medium">{faq.question}</h2>
+              <h2 className="text-lg  font-medium">{faq.question}</h2>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className={`h-6 w-6 transition-transform transform ${
@@ -74,7 +74,7 @@ export default function FAQ() {
               </svg>
             </div>
             {activeIndex === index && (
-              <p className="mt-2 text-gray-600">{faq.answer}</p>
+              <p className="mt-2 pr-8 font-medium text-gray-500">{faq.answer}</p>
             )}
           </div>
         ))}

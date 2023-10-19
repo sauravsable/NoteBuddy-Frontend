@@ -3,8 +3,8 @@ import images from '../Images/images.png'
 import { Typography } from "@mui/material";
 export default function Footer() {
   return (
-<footer className="w-full bg-blue-950 p-8">
-      <div className="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 bg-blue-950  text-center md:justify-between">
+<footer className="w-full footer p-8">
+      <div className="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 footer  text-center md:justify-between">
       
       <div className='font-bold text-2xl cursor-pointer flex items-center font-[Poppins] text-white'>
       <img src={images} alt="logoimg" className="h-10 rounded-xl mx-3"/>NoteBuddy
