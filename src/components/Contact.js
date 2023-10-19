@@ -126,7 +126,7 @@ export default function Contact() {
                 id="name"
                 name="name"
                 className="mt-1 p-2 w-full rounded-md border-gray-300 shadow-sm focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
-                placeholder="John Doe"
+                placeholder="Enter your name"
                 onChange={handleChange}
                 value={formData.name}
               />
@@ -146,7 +146,7 @@ export default function Contact() {
                 id="email"
                 name="email"
                 className="mt-1 p-2 w-full rounded-md border-gray-300 shadow-sm focus:ring focus:ring-indigo-500 focus:ring-opacity-50"
-                placeholder="john@example.com"
+                placeholder="Enter your email id"
                 onChange={handleChange}
                 value={formData.email}
               />
