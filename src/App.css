@@ -191,3 +191,25 @@ width: 150px;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+@media screen and (max-width: 600px) {
+  .paraHome {
+    width: 22rem;
+}
+.imageAbout {
+  height: 25rem;
+  margin-left:0;
+}
+.logoClass {
+  background-color: transparent;
+  margin: 1rem 1rem 26px 11px;
+  width: 95%;
+}
+.serviceHead {
+  font-size: 3rem;
+  margin: 2rem 0 7rem 0;
+}
+.abouth2{
+  text-align: center;
+}
+}

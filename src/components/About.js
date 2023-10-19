@@ -8,10 +8,10 @@ export default function About() {
         <img src={aboutimage} alt="About Us" className="imageAbout" />
       </div>
       <div className="lg:w-2/3 lg:pl-8 mt-6 lg:mt-0">
-        <h2 className="heading text-5xl font-semibold">
+        <h2 className="heading abouth2 text-5xl font-semibold">
           About Us
         </h2>
-        <div className="text-justify mt-6 pr-4 text-xl text-white">
+        <div className="text-justify mt-6 pr-4 py-8 pl-4 text-xl text-white">
           <p className='paraAbout text-justify  text-gray-500'>
             Welcome to NoteBuddy, your trusted partner in making knowledge
             accessible through offline notes distribution. We're passionate
