@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { setUser} from '../redux/slices/userSlice';
 
 export default function SignUp() {
   const [formData, setFormData] = useState({
@@ -9,6 +11,7 @@ export default function SignUp() {
   });
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+  const dispatch=useDispatch();
 
   const validation = () => {
     const newErrors = {};
@@ -41,7 +44,7 @@ export default function SignUp() {
   
     if (validation()) {
       try {
-        const response = await fetch('https://notebuddy-backend.onrender.com/register', {
+        const response = await fetch('http://localhost:5000/register', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -65,6 +68,7 @@ export default function SignUp() {
             alert("User Successfully Registered");
             localStorage.setItem('user', data.name);
             localStorage.setItem('userId',data._id);
+            dispatch(setUser(data));
             navigate('/home');
           }
         } else {

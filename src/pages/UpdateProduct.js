@@ -21,7 +21,7 @@ export default function UpdateProduct() {
   const getproductdetails = async () => {
     try {
       const response = await fetch(
-        `https://notebuddy-backend.onrender.com/getproducttoupdate/${params.id}`,
+        `http://localhost:5000/getproducttoupdate/${params.id}`,
         {
           method: 'GET',
           headers: {
@@ -57,7 +57,7 @@ export default function UpdateProduct() {
   
     try {
       const response = await fetch(
-        `https://notebuddy-backend.onrender.com/updateproduct/${params.id}`,
+        `http://localhost:5000/updateproduct/${params.id}`,
         {
           method: 'PUT',
           headers: {

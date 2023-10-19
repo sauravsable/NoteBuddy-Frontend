@@ -1,33 +1,36 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { TERipple } from "tw-elements-react";
+import { useSelector } from "react-redux";
 
 export default function ProductList() {
   const [products, setproducts] = useState([]);
   const navigate=useNavigate();
+  const user = useSelector((state) => state.user.userData);
 
-  useEffect(()=>{
-    let data=localStorage.getItem("user");
-    console.log(data);
-    if(data==null){
-    navigate("/");
+  useEffect(() => {
+    if (user && user._id) {
+      getproducts();
+    } else {
+      navigate("/");
     }
-  },[navigate])
+  }, [user, navigate]);
+  
 
   const getproducts = async () => {
     try {
-      const userId=localStorage.getItem('userId');
-      let response = await fetch("https://notebuddy-backend.onrender.com/products", {
+      let response = await fetch("http://localhost:5000/products", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         credentials: "include",
-        body: JSON.stringify({userId}),
+        body: JSON.stringify({userId:user._id}),
       });
   
       if (response.status === 200) {
         response = await response.json();
+        console.warn(response);
         setproducts(response);
       } else {
         console.error("Error fetching products:", response.statusText);
@@ -37,16 +40,11 @@ export default function ProductList() {
     }
   };
   
-
-  useEffect(() => {
-    getproducts();
-  }, []);
-
   const searchhandle = async (e) => {
     const key = e.target.value;
     if (key) {
       try {
-        const response = await fetch(`https://notebuddy-backend.onrender.com/search/${key}`, {
+        const response = await fetch(`http://localhost:5000/search/${key}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -64,21 +62,21 @@ export default function ProductList() {
         console.error('Error fetching search results:', error);
       }
     } else {
-      getproducts();
+      await getproducts();
     }
   };
   
 
-  const senddata = async (email,subject,semester) => {
-    console.warn(email,subject,semester);
+  const senddata = async (email,subject,semester,name) => {
+    console.warn(email,subject,semester,name);
     try {
-      const response = await fetch('https://notebuddy-backend.onrender.com/getdata', {
+      const response = await fetch('http://localhost:5000/getdata', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         credentials: 'include',
-        body: JSON.stringify({email,subject,semester}),
+        body: JSON.stringify({email,subject,semester,name,userEmail:user.email,userName:user.name}),
       });
       navigate("/ConfirmOTP");
       if (response.status === 200) {
@@ -106,6 +104,7 @@ export default function ProductList() {
       />
       </div>
       <div className="grid grid-cols-1 mx-6 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 mb-4 lg:px-16">
+
   {products.length > 0 ? (
     products.map((item, index) => (
       <div key={index} className="col-span-1 my-3">
@@ -124,7 +123,7 @@ export default function ProductList() {
               <button
                 type="button"
                 className="inline-block text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600 px-6 pb-2 pt-2.5 text-xs font-medium leading-normal shadow-md ease-in-out hover:bg-primary-600 hover:shadow-lg focus:bg-primary-600 focus:shadow-lg  focus:ring-0 active:bg-primary-700 active:shadow-lg dark:shadow-md dark:hover:shadow-lg dark:focus:shadow-lg dark:active:shadow-lg"
-                onClick={()=>senddata(item.email,item.subject,item.semester)}
+                onClick={()=>senddata(item.userEmail,item.subject,item.semester,item.userName)}
               >
                 Get In Touch
               </button>

@@ -44,7 +44,7 @@ export default function Contact() {
       
         if (validation()) {
           try {
-            const response = await fetch('https://notebuddy-backend.onrender.com/sendmessage', {
+            const response = await fetch('http://localhost:5000/sendmessage', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
