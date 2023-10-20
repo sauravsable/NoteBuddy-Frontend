@@ -200,7 +200,16 @@ width: 150px;
   width:30rem;
   background-color:#E9F1FA;
 }
-
+.signup1{
+  padding-bottom: 10rem !important;
+}
+.SignUp{
+  width: 25rem;
+  background-color:#E9F1FA !important;
+}
+.signup2{
+  padding-bottom: 10rem;
+}
 * {
   font-family: 'Roboto', sans-serif !important;
 }
@@ -214,6 +223,9 @@ width: 150px;
 .imageAbout {
   height: 25rem;
   margin-left:0;
+}
+.SignUp{
+  width: 25rem;
 }
 .logoClass {
   background-color: transparent;
