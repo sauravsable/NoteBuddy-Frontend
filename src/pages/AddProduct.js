@@ -12,11 +12,11 @@ export default function AddProduct() {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user.userData);
 
-  useEffect(() => {
-    if (!user || !user._id) {
-      navigate("/");
-    }
-  }, [user, navigate]);
+  // useEffect(() => {
+  //   if (!user || !user._id) {
+  //     navigate("/");
+  //   }
+  // }, [user, navigate]);
 
   const validation = () => {
     const newErrors = {};
@@ -81,19 +81,19 @@ export default function AddProduct() {
   };
 
   return (
-    <div className="mt-4 mb-6">
-      <div className="flex flex-col items-center min-h-screen pt-6 sm:justify-center sm:pt-0 bg-gray-50">
+    <div className="mt-4 mb-6 backky">
+      <div className="flex flex-col backky items-center min-h-screen pt-6 sm:justify-center sm:pt-0 bg-gray-50">
         <div>
           <a href="/">
-            <h3 className="text-4xl font-bold text-blue-950">Add Notes</h3>
+            <h3 className="text-4xl heading font-bold text-blue-950">Add Notes</h3>
           </a>
         </div>
-        <div className="w-full px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-md sm:rounded-lg">
+        <div className="w-full rounded-lg imageview px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-md sm:rounded-lg">
           <form>
             <div className="mt-4">
               <label
                 htmlFor="semester"
-                className="block text-sm font-medium text-gray-700 undefined"
+                className="block text-sm font-medium text-gray-500 undefined"
               >
                 Semester
               </label>
@@ -113,7 +113,7 @@ export default function AddProduct() {
             <div className="mt-4">
               <label
                 htmlFor="subject"
-                className="block text-sm font-medium text-gray-700 undefined"
+                className="block text-sm font-medium text-gray-500 undefined"
               >
                 Subject
               </label>
@@ -133,7 +133,7 @@ export default function AddProduct() {
             <div className="mt-4">
               <label
                 htmlFor="status"
-                className="block text-sm font-medium text-gray-700 undefined"
+                className="block text-sm font-medium text-gray-500 undefined"
               >
                 Status
               </label>
@@ -153,7 +153,7 @@ export default function AddProduct() {
             <div className="flex items-center justify-end mt-4">
               <button
                 type="submit"
-                className="inline-flex items-center px-4 py-2 ml-4 text-xs font-semibold tracking-widest text-white uppercase transition duration-150 ease-in-out bg-gray-900 border border-transparent rounded-md active:bg-gray-900 false"
+                className="btnValue inline-flex items-center  false"
                 onClick={(e)=>insertData(e)}
               >
                 Add
