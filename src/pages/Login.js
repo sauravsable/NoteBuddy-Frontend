@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import {useDispatch} from 'react-redux'
 import { useNavigate, Link } from 'react-router-dom';
 import login from '../Images/login.png'
+import { setUser } from '../redux/slices/userSlice';
 export default function Login() {
   const [formData, setFormData] = useState({
     email: '',
@@ -8,6 +10,7 @@ export default function Login() {
   });
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+  const dispatch=useDispatch();
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -38,7 +41,7 @@ export default function Login() {
   
     if (validation()) {
       try {
-        const response = await fetch('https://notebuddy-backend.onrender.com/login', {
+        const response = await fetch('http://localhost:5000/login', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -59,6 +62,7 @@ export default function Login() {
           }
           localStorage.setItem('user', data.name);
           localStorage.setItem('userId',data._id);
+          dispatch(setUser(data))
           setFormData({
             email: '',
             password: '',

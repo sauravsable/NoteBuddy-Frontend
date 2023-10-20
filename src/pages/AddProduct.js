@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from "react-redux";
 
 export default function AddProduct() {
   const [formData, setFormData] = useState({
@@ -9,14 +10,13 @@ export default function AddProduct() {
   });
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
+  const user = useSelector((state) => state.user.userData);
 
-  useEffect(()=>{
-    let data=localStorage.getItem("user");
-    console.log(data);
-    if(data==null){
-    navigate("/");
+  useEffect(() => {
+    if (!user || !user._id) {
+      navigate("/");
     }
-  },[navigate])
+  }, [user, navigate]);
 
   const validation = () => {
     const newErrors = {};
@@ -42,14 +42,13 @@ export default function AddProduct() {
   
     if (validation()) {
       try {
-        const userId=localStorage.getItem('userId');
-        const response = await fetch('https://notebuddy-backend.onrender.com/addproduct', {
+        const response = await fetch('http://localhost:5000/addproduct', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           credentials: 'include',
-          body: JSON.stringify({formData,userId}),
+          body: JSON.stringify({formData,userId:user._id,userEmail:user.email,userName:user.name}),
         });
   
         if (response.status === 200) {

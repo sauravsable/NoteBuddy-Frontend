@@ -1,6 +1,7 @@
 import './App.css';
 import React, { useEffect } from 'react';
 import { BrowserRouter,Routes,Route} from 'react-router-dom';
+// import { useSelector } from "react-redux";
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import SignUp from './pages/SignUp';
@@ -25,7 +26,7 @@ function App() {
 
   const checkuser=()=>{
     let data=localStorage.getItem("user");
-    console.log(data);
+    // console.log(data);
     return data;
   }
   return (
@@ -54,3 +55,5 @@ function App() {
 }
 
 export default App;
+
+
