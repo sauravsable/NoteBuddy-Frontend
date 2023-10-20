@@ -77,28 +77,28 @@ export default function Contact() {
     <div className="max-w-7xl mx-auto">
       <div className="mt-6 grid grid-cols-1 gap-8 md:grid-cols-2">
         <div className="md:col-span-1 lg:ml-10">
-          <h2 className="text-3xl  heading font-extrabold text-white sm:text-4xl">
+          <h2 className="text-3xl contactus  heading font-extrabold text-white sm:text-4xl">
             Contact Us
           </h2>
-          <h3 className="text-lg text-gray-500 font-medium  mt-4">
+          <h3 className="text-lg contactus1 text-gray-500 font-medium  mt-4">
             Get in Touch
           </h3>
-          <p className="mt-1 text-gray-500 text-justify w-9/12 ">
+          <p className="mt-1 contactus2 text-gray-500 text-justify w-9/12 ">
             Got questions or feedback? We'd love to hear from you! Reach out
             to our friendly team at below contact details, and we'll be
             happy to assist you.
           </p>
-          <div className="mt-6 flex items-center">
+          <div className="mt-6 pl-6 flex items-center">
             <FontAwesomeIcon
               icon={faEnvelope}
               className="text-gray-500 text-2xl mr-2"
             />
-            <h4 className="text-md text-gray-500 font-medium  inline-block">
+            <h4 className="text-md  text-gray-500 font-medium  inline-block">
               Email :
             </h4>
-            <p className="mt-1 text-gray-500  ml-2">NoteBuddy@gmail.com</p>
+            <p className=" text-gray-500  ml-2">NoteBuddy@gmail.com</p>
           </div>
-          <div className="mt-6 flex items-center">
+          <div className="mt-6 pl-6 flex items-center">
             <FontAwesomeIcon
               icon={faPhone}
               className="text-gray-500 text-2xl mr-2"
@@ -106,7 +106,7 @@ export default function Contact() {
             <h4 className="text-md text-gray-500 font-medium  inline-block">
               Phone :
             </h4>
-            <p className="mt-1  text-gray-500 ml-2">+91-98xx58xx26</p>
+            <p className=" text-gray-500 ml-2">+91-98xx58xx26</p>
           </div>
         </div>
         <div className="md:col-span-1 lg:pr-10">
@@ -117,7 +117,7 @@ export default function Contact() {
             <div className="mb-4">
               <label
                 htmlFor="name"
-                className="block text-sm font-medium text-white"
+                className="block text-sm font-medium text-gray-500"
               >
                 Name
               </label>
@@ -137,7 +137,7 @@ export default function Contact() {
             <div className="mb-4">
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-white"
+                className="block text-sm font-medium text-gray-500"
               >
                 Email
               </label>
@@ -157,7 +157,7 @@ export default function Contact() {
             <div className="mb-4">
               <label
                 htmlFor="message"
-                className="block text-sm font-medium text-white"
+                className="block text-sm font-medium text-gray-500"
               >
                 Message
               </label>

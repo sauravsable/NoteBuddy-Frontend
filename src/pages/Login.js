@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-
+import login from '../Images/login.png'
 export default function Login() {
   const [formData, setFormData] = useState({
     email: '',
@@ -75,17 +75,20 @@ export default function Login() {
   
 
   return (
-    <div className="mt-24">
-      <div className="flex flex-col items-center min-h-screen pt-6 sm:pt-0 bg-gray-50">
+    <div className="logining">
+      
+        <img className="imaging" src={login} alt="" />
+      
+      <div className="flex loginBox backky flex-col items-center min-h-screen  sm:pt-0 bg-gray-50">
         <div>
-          <h3 className="text-4xl font-bold text-purple-600">Login</h3>
+          <h3 className="text-4xl font-bold heading">Login</h3>
         </div>
-        <div className="w-full px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-lg sm:rounded-lg">
+        <div className="w-full rounded-lg imageview  px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-lg sm:rounded-lg">
           <form>
-            <div className="mt-4">
+            <div className="mt-4 ">
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-500"
               >
                 Email
               </label>
@@ -105,7 +108,7 @@ export default function Login() {
             <div className="mt-4">
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-500"
               >
                 Password
               </label>
@@ -122,12 +125,12 @@ export default function Login() {
                 )}
               </div>
             </div>
-            <Link to="/signup" className="text-xs text-purple-600 hover:underline">
+            <Link to="/signup" className="text-xs heading hover:underline">
               Forgot Password?
             </Link>
             <div className="flex items-center mt-5">
               <button
-                className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"
+                className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform btnValue rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"
                 onClick={(e)=>handleSubmit(e)}
               >
                 Login
@@ -137,7 +140,7 @@ export default function Login() {
           <div className="mt-4 text-gray-600">
             Don't have an account?{' '}
             <span>
-              <Link className="text-purple-600 hover:underline" to="/signup">
+              <Link className="heading hover:underline" to="/signup">
                 Register
               </Link>
             </span>
