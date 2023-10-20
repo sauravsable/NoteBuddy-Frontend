@@ -293,7 +293,7 @@ export default function Profile() {
                       {/* <button className="mx-2 px-2 py-2 my-2 bg-blue-600 text-white rounded-md"  onClick={()=>handleConnect(request.requestUserNumber)}>
                         Connect
                       </button> */}
-                      <img src={image} alt="logoimg" className="h-10 rounded-xl mx-3 cursor-pointer"  onClick={()=>handleConnect(request.requestUserNumber)}/>
+                      <img src={image} alt="logoimg" className="h-10 rounded-xl mx-3 cursor-pointer"  onClick={()=>handleConnect(request.userNumber)}/>
                     </div>
                   </td>
                 </tr>
