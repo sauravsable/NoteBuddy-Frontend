@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setUser} from '../redux/slices/userSlice';
-
+import Register from '../Images/registration.png'
 export default function SignUp() {
   const [formData, setFormData] = useState({
     name: '',
@@ -90,8 +90,9 @@ export default function SignUp() {
   };
 
   return (
-    <div className="mt-20">
-      <div className="flex flex-col items-center min-h-screen pt-6 sm:justify-center sm:pt-0 bg-gray-50">
+    <div className="pt-20 backky">
+      <img src={Register} alt="" />
+      <div className="flex flex-col items-center min-h-screen backky pt-6 sm:justify-center sm:pt-0 bg-gray-50">
         <div>
           <a href="/">
             <h3 className="text-4xl font-bold text-purple-600">Register</h3>
