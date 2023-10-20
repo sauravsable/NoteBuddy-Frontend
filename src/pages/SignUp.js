@@ -99,20 +99,20 @@ export default function SignUp() {
   };
 
   return (
-    <div className="pt-20 backky">
-      <img src={Register} alt="" />
-      <div className="flex flex-col items-center min-h-screen backky pt-6 sm:justify-center sm:pt-0 bg-gray-50">
+    <div className=" backky logining">
+      <img className='imaging' src={Register} alt="" />
+      <div className="flex loginBox signup2 flex-col items-center min-h-screen backky  sm:justify-center sm:pt-0 bg-gray-50">
         <div>
           <a href="/">
-            <h3 className="text-4xl font-bold text-purple-600">Register</h3>
+            <h3 className="text-4xl heading font-bold text-purple-600">Register</h3>
           </a>
         </div>
-        <div className="w-full px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-lg sm:rounded-lg">
+        <div className="w-full rounded-lg SignUp px-6 py-4 mt-6 overflow-hidden  shadow-md sm:max-w-lg sm:rounded-lg">
           <form>
             <div>
               <label
                 htmlFor="name"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-500"
               >
                 Name
               </label>
@@ -125,14 +125,14 @@ export default function SignUp() {
                   value={formData.name}
                 />
                 {errors.name && (
-                  <span className="text-red-500">{errors.name}</span>
+                  <span className="text-gray-500">{errors.name}</span>
                 )}
               </div>
             </div>
             <div className="mt-4">
               <label
                 htmlFor="email"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-500"
               >
                 Email
               </label>
@@ -145,14 +145,14 @@ export default function SignUp() {
                   value={formData.email}
                 />
                 {errors.email && (
-                  <span className="text-red-500">{errors.email}</span>
+                  <span className="text-gray-500">{errors.email}</span>
                 )}
               </div>
             </div>
             <div className="mt-4">
               <label
                 htmlFor="mobile"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-500"
               >
                 Mobile Number
               </label>
@@ -165,14 +165,14 @@ export default function SignUp() {
                   value={formData.mobile}
                 />
                 {errors.mobile && (
-                  <span className="text-red-500">{errors.mobile}</span>
+                  <span className="text-gray-500">{errors.mobile}</span>
                 )}
               </div>
             </div>
             <div className="mt-4">
               <label
                 htmlFor="password"
-                className="block text-sm font-medium text-gray-700"
+                className="block text-sm font-medium text-gray-500"
               >
                 Password
               </label>
@@ -185,60 +185,26 @@ export default function SignUp() {
                   value={formData.password}
                 />
                 {errors.password && (
-                  <span className="text-red-500">{errors.password}</span>
+                  <span className="text-gray-500">{errors.password}</span>
                 )}
               </div>
             </div>
             <div className="flex items-center mt-5">
               <button
-                className="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600"
+                className="w-full px-4 py-2 btnValue tracking-wide  "
                 onClick={(e)=>collectData(e)}
               >
                 Register
               </button>
             </div>
           </form>
-          <div className="mt-4 text-gray-600">
+          <div className="mt-4 text-gray-500">
             Already have an account?{' '}
             <span>
-              <Link className="text-purple-600 hover:underline" to="/login">
+              <Link className="heading hover:underline" to="/login">
                 Log in
               </Link>
             </span>
-          </div>
-          <div className="flex items-center w-full my-4">
-            <hr className="w-full" />
-            <p className="px-3">OR</p>
-            <hr className="w-full" />
-          </div>
-          <div className="my-6 space-y-2">
-            <button
-              aria-label="Login with Google"
-              type="button"
-              className="flex items-center justify-center w-full p-2 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 32 32"
-                className="w-5 h-5 fill-current"
-              >
-                {/* Google icon SVG */}
-              </svg>
-              <p>Login with Google</p>
-            </button>
-            <button
-              aria-label="Login with GitHub"
-              className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 dark:border-gray-400 focus:ring-violet-400"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 32 32"
-                className="w-5 h-5 fill-current"
-              >
-                {/* GitHub icon SVG */}
-              </svg>
-              <p>Login with GitHub</p>
-            </button>
           </div>
         </div>
       </div>

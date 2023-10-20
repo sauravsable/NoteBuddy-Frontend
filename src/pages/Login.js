@@ -83,7 +83,7 @@ export default function Login() {
       
         <img className="imaging" src={login} alt="" />
       
-      <div className="flex loginBox backky flex-col items-center min-h-screen  sm:pt-0 bg-gray-50">
+      <div className="flex loginBox backky signup1 flex-col items-center min-h-screen  sm:pt-0 bg-gray-50">
         <div>
           <h3 className="text-4xl font-bold heading">Login</h3>
         </div>
