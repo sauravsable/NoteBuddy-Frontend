@@ -7,6 +7,7 @@ export default function SignUp() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    mobile:'',
     password: '',
   });
   const [errors, setErrors] = useState({});
@@ -17,6 +18,7 @@ export default function SignUp() {
     const newErrors = {};
     const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*]).{8,}$/;
+    const mobilePattern=/^[0-9]{10}$/;
 
     if (!formData.name) {
       newErrors.name = 'Name is required';
@@ -26,6 +28,12 @@ export default function SignUp() {
       newErrors.email = 'Email is required';
     } else if (!emailPattern.test(formData.email)) {
       newErrors.email = 'Please enter your correct Email ID';
+    }
+  
+    if (!formData.mobile) {
+      newErrors.mobile = 'Mobile Number is required';
+    } else if (!mobilePattern.test(formData.mobile)) {
+      newErrors.mobile = 'Please enter your correct Mobile Number';
     }
 
     if (!formData.password) {
@@ -63,6 +71,7 @@ export default function SignUp() {
             setFormData({
               name: '',
               email: '',
+              mobile:'',
               password: '',
             });
             alert("User Successfully Registered");
@@ -137,6 +146,26 @@ export default function SignUp() {
                 />
                 {errors.email && (
                   <span className="text-red-500">{errors.email}</span>
+                )}
+              </div>
+            </div>
+            <div className="mt-4">
+              <label
+                htmlFor="mobile"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Mobile Number
+              </label>
+              <div className="flex flex-col items-start">
+                <input
+                  type="text"
+                  name="mobile"
+                  className="block w-full mt-1 px-2 border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                  onChange={handleChange}
+                  value={formData.mobile}
+                />
+                {errors.mobile && (
+                  <span className="text-red-500">{errors.mobile}</span>
                 )}
               </div>
             </div>

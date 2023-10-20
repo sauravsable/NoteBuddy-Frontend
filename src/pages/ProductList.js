@@ -76,7 +76,7 @@ export default function ProductList() {
           'Content-Type': 'application/json',
         },
         credentials: 'include',
-        body: JSON.stringify({email,subject,semester,name,userEmail:user.email,userName:user.name}),
+        body: JSON.stringify({email,subject,semester,name,userEmail:user.email,userName:user.name,userMobile:user.mobile}),
       });
       navigate("/ConfirmOTP");
       if (response.status === 200) {
@@ -94,7 +94,7 @@ export default function ProductList() {
 
   return (
     <>
-      <div className="mt-28 items-center m-auto lg:w-96 ">
+      <div className="mt-16 items-center m-auto lg:w-96 pt-12 h-5/6">
         <h1 className="text-3xl font-extrabold text-center mb-4 text-blue-950">Available Notes</h1>
       <input
         type="text"
@@ -122,7 +122,7 @@ export default function ProductList() {
             <TERipple>
               <button
                 type="button"
-                className="inline-block text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600 px-6 pb-2 pt-2.5 text-xs font-medium leading-normal shadow-md ease-in-out hover:bg-primary-600 hover:shadow-lg focus:bg-primary-600 focus:shadow-lg  focus:ring-0 active:bg-primary-700 active:shadow-lg dark:shadow-md dark:hover:shadow-lg dark:focus:shadow-lg dark:active:shadow-lg"
+                className="inline-block cursor-pointer text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600 px-6 pb-2 pt-2.5 text-xs font-medium leading-normal shadow-md ease-in-out hover:bg-primary-600 hover:shadow-lg focus:bg-primary-600 focus:shadow-lg  focus:ring-0 active:bg-primary-700 active:shadow-lg dark:shadow-md dark:hover:shadow-lg dark:focus:shadow-lg dark:active:shadow-lg"
                 onClick={()=>senddata(item.userEmail,item.subject,item.semester,item.userName)}
               >
                 Get In Touch

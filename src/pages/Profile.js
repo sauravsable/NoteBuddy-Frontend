@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { TERipple } from "tw-elements-react";
 import { useSelector } from "react-redux";
-
+import image from "../Images/whatsapp.png"
 export default function Profile() {
   const [myproducts, setmyproducts] = useState([{}]);
   const [myrequests, setmyrequests] = useState([{}]);
@@ -123,9 +123,9 @@ export default function Profile() {
     }
   }
   
-  const handleConnect = async () => {
+  const handleConnect = async (mobile) => {
     try {
-      const whatsappLink = `https://wa.me/${7248132013}`;
+      const whatsappLink = `https://wa.me/${mobile}`;
       window.open(whatsappLink, '_blank');
     } catch (error) {
       console.error('Error updating the request:', error);
@@ -150,7 +150,10 @@ export default function Profile() {
           alert(data)
           getrequests();
       } else {
-        console.error("Error fetching products:", response.statusText);
+        const data = await response.json();
+        console.log(data);
+          alert(data);
+          getrequests();
       }
     } catch (error) {
       console.error("Error fetching products:", error);
@@ -174,8 +177,12 @@ export default function Profile() {
         console.log(data);
           alert(data);
           getrequests();
-      } else {
-        console.error("Error fetching products:", response.statusText);
+      } 
+      else {
+        const data = await response.json();
+        console.log(data);
+          alert(data);
+          getrequests();
       }
     } catch (error) {
       console.error("Error fetching products:", error);
@@ -283,9 +290,10 @@ export default function Profile() {
                       <button className="mx-2 px-2 py-2 my-2 bg-red-600 text-white rounded-md" onClick={() => handleDecline(request)}>
                         Decline
                       </button>
-                      <button className="mx-2 px-2 py-2 my-2 bg-blue-600 text-white rounded-md"  onClick={handleConnect}>
+                      {/* <button className="mx-2 px-2 py-2 my-2 bg-blue-600 text-white rounded-md"  onClick={()=>handleConnect(request.requestUserNumber)}>
                         Connect
-                      </button>
+                      </button> */}
+                      <img src={image} alt="logoimg" className="h-10 rounded-xl mx-3 cursor-pointer"  onClick={()=>handleConnect(request.requestUserNumber)}/>
                     </div>
                   </td>
                 </tr>
