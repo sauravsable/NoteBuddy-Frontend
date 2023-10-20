@@ -48,7 +48,7 @@ export default function AddProduct() {
             'Content-Type': 'application/json',
           },
           credentials: 'include',
-          body: JSON.stringify({formData,userId:user._id,userEmail:user.email,userName:user.name}),
+          body: JSON.stringify({formData,userId:user._id,userEmail:user.email,userName:user.name,userMobile:user.mobile}),
         });
   
         if (response.status === 200) {
