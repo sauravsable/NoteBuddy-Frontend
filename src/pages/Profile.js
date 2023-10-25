@@ -310,17 +310,17 @@ export default function Profile() {
         {myproducts.length > 0 ? (
           myproducts.map((item, index) => (
             <div key={index} className="col-span-1 my-3">
-              <div className="rounded-lg bg-gray-100 text-center shadow-md dark:bg-neutral-700">
-                <div className="border-b-2 border-neutral-100 px-6 py-3 dark:border-neutral-600 dark:text-neutral-50">
+              <div className="rounded-lg backgrounding heading text-center shadow-md dark:bg-neutral-700">
+                <div className="text-3xl px-6 py-3 dark:border-neutral-600 dark:text-neutral-50">
                   Semester - {item.semester}
                 </div>
                 <div className="p-6">
-                  <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+                  <h5 className="mb-2 text-3xl font-medium leading-tight text-gray-500">
                     {item.subject}
                   </h5>
-                  <p className="mb-4 text-base text-black dark:text-neutral-200">
+                  {/* <p className="mb-4 text-base text-black dark:text-neutral-200">
                     Status - {item.status}
-                  </p>
+                  </p> */}
                   <TERipple>
                     <button
                       type="button"

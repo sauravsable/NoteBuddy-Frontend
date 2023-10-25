@@ -98,7 +98,8 @@ export default function ProductList() {
         <h1 className="text-3xl font-extrabold text-center mb-4 text-blue-950">Available Notes</h1>
       <input
         type="text"
-        className="w-full  px-4 py-2 rounded-lg border-2 border-cyan-400 bg-gray-100 focus:bg-white dark:bg-neutral-700 dark:focus:bg-neutral-800"
+        style={{borderColor:"#00ABE4"}}
+        className="w-full  px-4 py-2 rounded-lg border-2 bg-gray-100 focus:bg-white dark:bg-neutral-700 dark:focus:bg-neutral-800"
         placeholder="Search Product"
         onChange={searchhandle}
       />
@@ -108,21 +109,21 @@ export default function ProductList() {
   {products.length > 0 ? (
     products.map((item, index) => (
       <div key={index} className="col-span-1 my-3 min-h-screen">
-        <div className="rounded-lg bg-gray-100 text-center shadow-md dark:bg-neutral-700">
-          <div className="border-b-2 text-black font-semibold border-neutral-100 px-6 py-3 dark:border-neutral-600 dark:text-neutral-50">
+        <div className="rounded-lg backgrounding text-center shadow-md dark:bg-neutral-700">
+          <div className=" text-black font-semibold text-3xl heading border-neutral-100 px-6 py-3 dark:border-neutral-600 dark:text-neutral-50">
             Semester - {item.semester}
           </div>
           <div className="p-6">
-            <h5 className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+            <h5 className="mb-2 text-3xl  font-medium leading-tight text-gray-500 dark:text-neutral-50">
               {item.subject}
             </h5>
-            <p className="mb-4 text-base  text-black dark:text-neutral-200">
+            {/* <p className="mb-4 text-base  text-black dark:text-neutral-200">
               Status - {item.status}
-            </p>
+            </p> */}
             <TERipple>
               <button
                 type="button"
-                className="inline-block cursor-pointer text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600 px-6 pb-2 pt-2.5 text-xs font-medium leading-normal shadow-md ease-in-out hover:bg-primary-600 hover:shadow-lg focus:bg-primary-600 focus:shadow-lg  focus:ring-0 active:bg-primary-700 active:shadow-lg dark:shadow-md dark:hover:shadow-lg dark:focus:shadow-lg dark:active:shadow-lg"
+                className="btnValue"
                 onClick={()=>senddata(item.userEmail,item.subject,item.semester,item.userName)}
               >
                 Get In Touch

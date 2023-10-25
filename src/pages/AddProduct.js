@@ -81,8 +81,8 @@ export default function AddProduct() {
   };
 
   return (
-    <div className="mt-4 mb-6 backky">
-      <div className="flex flex-col backky items-center min-h-screen pt-6 sm:justify-center sm:pt-0 bg-gray-50">
+    <div className="mt-4  mb-6 backky">
+      <div className="flex flex-col padt backky items-center min-h-screen pt-6 sm:justify-center sm:pt-0 bg-gray-50">
         <div>
           <a href="/">
             <h3 className="text-4xl heading font-bold text-blue-950">Add Notes</h3>
