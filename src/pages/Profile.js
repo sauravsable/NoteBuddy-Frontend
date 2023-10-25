@@ -191,20 +191,20 @@ export default function Profile() {
 
   return (
     <>
-      <div className="mt-36 mx-5 md:mx-40">
+      <div className="pt-36 mx-5 md:mx-40">
         <h1 className="text-3xl font-extrabold text-center mb-4">
           My Requests
         </h1>
         <div className="overflow-x-auto">
-          <table className="min-w-full table-fixed border border-collapse">
+          <table className="min-w-full tableBorder rounded-lg table-fixed border border-collapse">
             <thead>
               <tr>
-                <th className="w-1/6 px-4 py-2 border">S.No.</th>
-                <th className="w-1/6 px-4 py-2 border">Requested To</th>
-                <th className="w-1/6 px-4 py-2 border">Email Address</th>
-                <th className="w-1/6 px-4 py-2 border">Semester</th>
-                <th className="w-1/6 px-4 py-2 border">Subject</th>
-                <th className="w-1/6 px-4 py-2 border">Status</th>
+                <th className="tableBorder w-1/6 px-4 py-2 border">S.No.</th>
+                <th className="tableBorder w-1/6 px-4 py-2 border">Requested To</th>
+                <th className="tableBorder w-1/6 px-4 py-2 border">Email Address</th>
+                <th className="tableBorder w-1/6 px-4 py-2 border">Semester</th>
+                <th className="tableBorder w-1/6 px-4 py-2 border">Subject</th>
+                <th className="tableBorder w-1/6 px-4 py-2 border">Status</th>
               </tr>
             </thead>
             <tbody>
@@ -213,21 +213,21 @@ export default function Profile() {
                   key={index}
                   className={index % 2 === 0 ? "bg-gray-100" : "bg-white"}
                 >
-                  <td className="px-4 py-2 border text-center">{index + 1}</td>
-                  <td className="px-4 py-2 border text-center">
+                  <td className="tableBorder px-4 py-2 border text-center">{index + 1}</td>
+                  <td className="tableBorder px-4 py-2 border text-center">
                     {request.requestUsername}
                   </td>
-                  <td className="px-4 py-2 border text-center">
+                  <td className="tableBorder px-4 py-2 border text-center">
                     {request.requestUserEmail}
                   </td>
-                  <td className="px-4 py-2 border text-center">
+                  <td className="tableBorder px-4 py-2 border text-center">
                     {request.semester}
                   </td>
-                  <td className="px-4 py-2 border text-center">
+                  <td className="tableBorder px-4 py-2 border text-center">
                     {request.subject}
                   </td>
-                  <td className="px-4 py-2 border text-center">
-                    <button className={`mx-2 px-2 py-2 my-2 bg-blue-600 rounded-md  ${getStatusColorClass(request.status)}`}>
+                  <td className="tableBorder px-4 py-2 border text-center">
+                    <button className={`btnValue  ${getStatusColorClass(request.status)}`}>
                       {request.status}
                     </button>
                   </td>
@@ -243,16 +243,16 @@ export default function Profile() {
           Requests For Me
         </h1>
         <div className="overflow-x-auto">
-          <table className="min-w-full table-fixed border border-collapse">
+          <table className="tableBorder min-w-full table-fixed border border-collapse">
             <thead>
               <tr>
-                <th className="w-1/6 px-4 py-2 border">S.No.</th>
-                <th className="w-1/6 px-4 py-2 border">Requested By</th>
-                <th className="w-1/6 px-4 py-2 border">Email Address</th>
-                <th className="w-1/6 px-4 py-2 border">Semester</th>
-                <th className="w-1/6 px-4 py-2 border">Subject</th>
-                <th className="w-1/6 px-4 py-2 border">Current Status</th>
-                <th className="w-1/6 px-4 py-2 border">Activity</th>
+                <th className="tableBorder w-1/6 px-4 py-2 border">S.No.</th>
+                <th className="tableBorder w-1/6 px-4 py-2 border">Requested By</th>
+                <th className="tableBorder w-1/6 px-4 py-2 border">Email Address</th>
+                <th className="tableBorder w-1/6 px-4 py-2 border">Semester</th>
+                <th className="tableBorder w-1/6 px-4 py-2 border">Subject</th>
+                <th className="tableBorder w-1/6 px-4 py-2 border">Current Status</th>
+                <th className="tableBorder w-1/6 px-4 py-2 border">Activity</th>
               </tr>
             </thead>
             <tbody>
@@ -261,33 +261,33 @@ export default function Profile() {
                   key={index}
                   className={index % 2 === 0 ? "bg-gray-100" : "bg-white"}
                 >
-                  <td className="px-4 py-2 border text-center">{index + 1}</td>
-                  <td className="px-4 py-2 border text-center">
+                  <td className="tableBorder px-4 py-2 border text-center">{index + 1}</td>
+                  <td className="tableBorder px-4 py-2 border text-center">
                     {request.userName}
                   </td>
-                  <td className="px-4 py-2 border text-center">
+                  <td className="tableBorder px-4 py-2 border text-center">
                     {request.userEmail}
                   </td>
-                  <td className="px-4 py-2 border text-center">
+                  <td className="tableBorder px-4 py-2 border text-center">
                     {request.semester}
                   </td>
-                  <td className="px-4 py-2 border text-center">
+                  <td className="tableBorder px-4 py-2 border text-center">
                     {request.subject}
                   </td>
-                  <td className="px-4 py-2 border text-center">
+                  <td className="tableBorder px-4 py-2 border text-center">
                   <div className="flex justify-center items-center">
-                      <button className={`mx-2 px-2 py-2 my-2 bg-blue-600 rounded-md  ${getStatusColorClass(request.status)}`}>
+                      <button className={`btnValue ${getStatusColorClass(request.status)}`}>
                         {request.status}
                       </button>
                     </div>
                   </td>
-                  <td className="px-4 py-2 border text-center">
+                  <td className="tableBorder px-4 py-2 border text-center">
                     <div className="flex justify-center items-center">
-                      <button className="mx-2 px-2 py-2 my-2 bg-blue-600 rounded-md text-white"
+                      <button className="btnValue"
                       onClick={() => handleAccept(request)}>
                         Accept
                       </button>
-                      <button className="mx-2 px-2 py-2 my-2 bg-red-600 text-white rounded-md" onClick={() => handleDecline(request)}>
+                      <button className="btnValue" onClick={() => handleDecline(request)}>
                         Decline
                       </button>
                       {/* <button className="mx-2 px-2 py-2 my-2 bg-blue-600 text-white rounded-md"  onClick={()=>handleConnect(request.requestUserNumber)}>
@@ -324,7 +324,7 @@ export default function Profile() {
                   <TERipple>
                     <button
                       type="button"
-                      className="inline-block mx-2 text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600 px-6 pb-2 pt-2.5 text-xs font-medium leading-normal shadow-md ease-in-out hover:bg-primary-600 hover:shadow-lg focus:bg-primary-600 focus:shadow-lg  focus:ring-0 active:bg-primary-700 active:shadow-lg dark:shadow-md dark:hover:shadow-lg dark:focus:shadow-lg dark:active:shadow-lg"
+                      className="btnValue"
                       onClick={() => {
                         deleteproduct(item._id);
                       }}
@@ -333,7 +333,7 @@ export default function Profile() {
                     </button>
                     <button
                       type="button"
-                      className="inline-block mx-2 text-white transition-colors duration-200 transform bg-purple-700 rounded-md hover:bg-purple-600 focus:outline-none focus:bg-purple-600 px-6 pb-2 pt-2.5 text-xs font-medium leading-normal shadow-md ease-in-out hover:bg-primary-600 hover:shadow-lg focus:bg-primary-600 focus:shadow-lg  focus:ring-0 active:bg-primary-700 active:shadow-lg dark:shadow-md dark:hover:shadow-lg dark:focus:shadow-lg dark:active:shadow-lg"
+                      className="btnValue"
                     >
                       <Link to={"/update/" + item._id}>Update</Link>
                     </button>

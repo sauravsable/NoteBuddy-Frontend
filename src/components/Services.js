@@ -26,14 +26,14 @@ export default function Services() {
       <h2 className="text-3xl serviceHead font-extrabold mb-8">
         Our Services
       </h2>
-      <div className="grid grid-cols-1 mx-8 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid  grid-cols-1 mx-8 md:grid-cols-2 lg:grid-cols-3 gap-8">
         {services.map((service, index) => (
           <div
             key={index}
-            className=" p-14 sm:mx-4 rounded-lg shadow-md transition ease-in-out delay-170 backcolor hover:shadow-2xl hover:-translate-y-1 cursor-pointer"
+            className=" p-14 gridingness sm:mx-4 rounded-lg shadow-md transition ease-in-out delay-170 backcolor hover:shadow-2xl hover:-translate-y-1 cursor-pointer"
           >
             <h1 className="text-xl headingService font-semibold mb-4">{service.title}</h1>
-            <p className=" text-justify text-gray-500 pofService">{service.description}</p>
+            <p className=" text-justify pofService">{service.description}</p>
           </div>
         ))}
       </div>

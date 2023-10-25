@@ -133,6 +133,17 @@ width: 150px;
   /* position: absolute;
   top: 197%; */
 }
+.gridingness{
+color: rgb(143, 142, 142);
+}
+.tableBorder{
+  border:2px solid #00749b;
+  background-color: #E9F1FA;
+}
+.gridingness:hover{
+  background-color: #00ABE4;
+  color: white;
+}
 
 .btnValue {
   color: #00749b;
@@ -156,6 +167,7 @@ width: 150px;
   font-size: 1.3rem;
   line-height: 30px;
 }
+
 
 .backcolor {
   background-color: #E9F1FA;

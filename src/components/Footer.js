@@ -3,7 +3,7 @@ import images from '../Images/images.png'
 import { Typography } from "@mui/material";
 export default function Footer() {
   return (
-<footer className="w-full footer p-8 bottom-0">
+<footer className="w-full footer relative bottom-0 p-8 bottom-0">
       <div className="flex flex-row flex-wrap items-center justify-center gap-y-6 gap-x-12 footer  text-center md:justify-between">
       
       <div className='font-bold text-2xl cursor-pointer flex items-center font-[Poppins] text-white'>
