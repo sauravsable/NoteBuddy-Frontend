@@ -6,7 +6,7 @@ export default function AddProduct() {
   const [formData, setFormData] = useState({
     semester: '',
     subject: '',
-    status: '',
+    description: '',
   });
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
@@ -29,8 +29,8 @@ export default function AddProduct() {
       newErrors.subject = 'Subject is required';
     }
 
-    if (!formData.status) {
-      newErrors.status = 'Status is required';
+    if (!formData.description) {
+      newErrors.description = 'Description is required';
     }
 
     setErrors(newErrors);
@@ -39,7 +39,7 @@ export default function AddProduct() {
 
   const insertData = async (e) => {
     e.preventDefault();
-  
+
     if (validation()) {
       try {
         const response = await fetch('http://localhost:5000/addproduct', {
@@ -48,19 +48,19 @@ export default function AddProduct() {
             'Content-Type': 'application/json',
           },
           credentials: 'include',
-          body: JSON.stringify({formData,userId:user._id,userEmail:user.email,userName:user.name,userMobile:user.mobile}),
+          body: JSON.stringify({ formData, userId: user._id, userEmail: user.email, userName: user.name, userMobile: user.mobile }),
         });
-  
+
         if (response.status === 200) {
           const data = await response.json();
           console.warn(data);
-  
+
           setFormData({
             semester: '',
             subject: '',
-            status: '',
+            description: '',
           });
-  
+
           navigate('/profile');
         } else {
           console.error('Error adding product:', response.statusText);
@@ -70,7 +70,7 @@ export default function AddProduct() {
       }
     }
   };
-  
+
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -95,16 +95,38 @@ export default function AddProduct() {
                 htmlFor="semester"
                 className="block text-sm font-medium text-gray-500 undefined"
               >
-                Semester
+                Class/Semester
               </label>
               <div className="flex flex-col items-start">
-                <input
+                {/* <input
                   type="number"
                   name="semester"
                   className="block w-full mt-1 px-2 border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                   onChange={handleChange}
                   value={formData.semester}
-                />
+                /> */}
+                <select 
+                  name="semester"
+                  className="block w-full mt-1 px-2 border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+                  onChange={handleChange}
+                  value={formData.semester}>
+                  <option value="0" >Select</option>
+                  <option value="6th" >Class 6th</option>
+                  <option value="7th" >Class 7th</option>
+                  <option value="8th" >Class 8th</option>
+                  <option value="9th" >Class 9th</option>
+                  <option value="10th" >Class 10th</option>
+                  <option value="11th" >Class 11th</option>
+                  <option value="12th" >Class 12th</option>
+                  <option value="I" >Semester I</option>
+                  <option value="II">Semester II</option>
+                  <option value="III">Semester III</option>
+                  <option value="IV">Semester IV</option>
+                  <option value="V">Semester V</option>
+                  <option value="VI">Semester VI</option>
+                  <option value="VII">Semester VII</option>
+                  <option value="VIII">Semester VIII</option>
+                </select>
                 {errors.semester && (
                   <span className="text-red-500">{errors.semester}</span>
                 )}
@@ -135,15 +157,15 @@ export default function AddProduct() {
                 htmlFor="status"
                 className="block text-sm font-medium text-gray-500 undefined"
               >
-                Status
+                Description
               </label>
               <div className="flex flex-col items-start">
-                <input
+                <textarea
                   type="text"
-                  name="status"
+                  name="description"
                   className="block w-full mt-1 px-2 border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                   onChange={handleChange}
-                  value={formData.status}
+                  value={formData.description}
                 />
                 {errors.status && (
                   <span className="text-red-500">{errors.status}</span>
@@ -154,14 +176,14 @@ export default function AddProduct() {
               <button
                 type="submit"
                 className="btnValue inline-flex items-center  false"
-                onClick={(e)=>insertData(e)}
+                onClick={(e) => insertData(e)}
               >
                 Add
               </button>
             </div>
           </form>
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }
