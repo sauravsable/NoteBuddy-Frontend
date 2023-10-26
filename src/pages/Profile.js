@@ -318,9 +318,12 @@ export default function Profile() {
                   <h5 className="mb-2 text-3xl font-medium leading-tight text-gray-500">
                     {item.subject}
                   </h5>
-                  {/* <p className="mb-4 text-base text-black dark:text-neutral-200">
+                  <p className="mb-4 text-base text-black dark:text-neutral-200">
                     Status - {item.status}
-                  </p> */}
+                  </p>
+                  <p className="mb-4 text-base text-black dark:text-neutral-200">
+                    Description - {item.description}
+                  </p>
                   <TERipple>
                     <button
                       type="button"
