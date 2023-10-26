@@ -126,7 +126,7 @@ export default function ProductList() {
                 className="btnValue"
                 onClick={()=>senddata(item.userEmail,item.subject,item.semester,item.userName)}
               >
-                Get In Touch
+                Send Request
               </button>
             </TERipple>
           </div>
