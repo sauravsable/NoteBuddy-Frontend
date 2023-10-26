@@ -9,11 +9,11 @@ export default function ProductList() {
   const user = useSelector((state) => state.user.userData);
 
   useEffect(() => {
-    // if (user && user._id) {
+    if (user && user._id) {
       getproducts();
-    // } else {
-      // navigate("/");
-    // }
+    } else {
+      navigate("/");
+    }
   }, [user, navigate]);
   
 

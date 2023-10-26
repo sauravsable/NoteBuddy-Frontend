@@ -12,11 +12,11 @@ export default function AddProduct() {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user.userData);
 
-  // useEffect(() => {
-  //   if (!user || !user._id) {
-  //     navigate("/");
-  //   }
-  // }, [user, navigate]);
+  useEffect(() => {
+    if (!user || !user._id) {
+      navigate("/");
+    }
+  }, [user, navigate]);
 
   const validation = () => {
     const newErrors = {};
