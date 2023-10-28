@@ -22,7 +22,7 @@ export default function Profile() {
 
   const getmyproducts = async () => {
     try {
-      const response = await fetch("http://localhost:5000/myproducts", {
+      const response = await fetch("https://notebuddy-backend.onrender.com/myproducts", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -45,7 +45,7 @@ export default function Profile() {
   const deleteproduct = async (id) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/deleteproduct/${id}`,
+        `https://notebuddy-backend.onrender.com/deleteproduct/${id}`,
         {
           method: "DELETE",
           headers: {
@@ -68,7 +68,7 @@ export default function Profile() {
 
   const getmyrequests = async () => {
     try {
-      const response = await fetch("http://localhost:5000/myrequests", {
+      const response = await fetch("https://notebuddy-backend.onrender.com/myrequests", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -90,7 +90,7 @@ export default function Profile() {
 
   const getrequests = async () => {
     try {
-      const response = await fetch("http://localhost:5000/requests", {
+      const response = await fetch("https://notebuddy-backend.onrender.com/requests", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -135,7 +135,7 @@ export default function Profile() {
   const handleAccept= async(request)=>{
     try {
       console.warn(request);
-      const response = await fetch("http://localhost:5000/changeStatusAccepted", {
+      const response = await fetch("https://notebuddy-backend.onrender.com/changeStatusAccepted", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -163,7 +163,7 @@ export default function Profile() {
   const handleDecline= async(request)=>{
     try {
       console.warn(request);
-      const response = await fetch("http://localhost:5000/changeStatusDecline", {
+      const response = await fetch("https://notebuddy-backend.onrender.com/changeStatusDecline", {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -192,7 +192,7 @@ export default function Profile() {
   return (
     <>
       <div className="pt-36 mx-5 md:mx-40">
-        <h1 className="text-3xl font-extrabold text-center mb-4">
+        <h1 className="text-3xl font-extrabold text-center mb-4 text-blue-950">
           My Requests
         </h1>
         <div className="overflow-x-auto">
@@ -239,7 +239,7 @@ export default function Profile() {
       </div>
 
       <div className="mt-36 mx-5 md:mx-40">
-        <h1 className="text-3xl font-extrabold text-center mb-4">
+        <h1 className="text-3xl font-extrabold text-center mb-4 text-blue-950">
           Requests For Me
         </h1>
         <div className="overflow-x-auto">
@@ -304,7 +304,7 @@ export default function Profile() {
       </div>
 
       <div className="mt-28 items-center m-auto lg:w-96 ">
-        <h1 className="text-3xl font-extrabold text-center mb-4">My Notes</h1>
+        <h1 className="text-3xl font-extrabold text-center mb-4 text-blue-950">My Notes</h1>
       </div>
       <div className="grid grid-cols-1 mx-6 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-12 mb-4 lg:px-16">
         {myproducts.length > 0 ? (
@@ -322,7 +322,7 @@ export default function Profile() {
                     Status - {item.status}
                   </p>
                   <p className="mb-4 text-base text-black dark:text-neutral-200">
-                    Description - {item.description}
+                    {item.description}
                   </p>
                   <TERipple>
                     <button

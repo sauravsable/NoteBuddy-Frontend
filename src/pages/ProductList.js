@@ -19,7 +19,7 @@ export default function ProductList() {
 
   const getproducts = async () => {
     try {
-      let response = await fetch("http://localhost:5000/products", {
+      let response = await fetch("https://notebuddy-backend.onrender.com/products", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -44,7 +44,7 @@ export default function ProductList() {
     const key = e.target.value;
     if (key) {
       try {
-        const response = await fetch(`http://localhost:5000/search/${key}`, {
+        const response = await fetch(`https://notebuddy-backend.onrender.com/search/${key}`, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -70,7 +70,7 @@ export default function ProductList() {
   const senddata = async (email,subject,semester,name) => {
     console.warn(email,subject,semester,name);
     try {
-      const response = await fetch('http://localhost:5000/getdata', {
+      const response = await fetch('https://notebuddy-backend.onrender.com/getdata', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
