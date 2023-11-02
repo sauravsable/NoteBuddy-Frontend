@@ -18,11 +18,11 @@ import FAQ from './components/FAQ'
 import Contact from './components/Contact'
 
 function App() {
-  // useEffect(() => {
-  //   window.addEventListener('beforeunload', async () => {
-  //     localStorage.clear();
-  //   });
-  // }, []);
+  useEffect(() => {
+    window.addEventListener('beforeunload', async () => {
+      localStorage.clear();
+    });
+  }, []);
 
   const checkuser=()=>{
     let data=localStorage.getItem("user");
