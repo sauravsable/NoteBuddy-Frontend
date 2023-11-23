@@ -12,11 +12,11 @@ export default function AddProduct() {
   const navigate = useNavigate();
   const user = useSelector((state) => state.user.userData);
 
-  // useEffect(() => {
-  //   if (!user || !user._id) {
-  //     navigate("/");
-  //   }
-  // }, [user, navigate]);
+  useEffect(() => {
+    if (!user || !user._id) {
+      navigate("/");
+    }
+  }, [user, navigate]);
 
   const validation = () => {
     const newErrors = {};
@@ -42,7 +42,7 @@ export default function AddProduct() {
 
     if (validation()) {
       try {
-        const response = await fetch('http://localhost:5000/addproduct', {
+        const response = await fetch('https://notebuddy-backend.onrender.com/addproduct', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -161,14 +161,15 @@ export default function AddProduct() {
               </label>
               <div className="flex flex-col items-start">
                 <textarea
+                  rows="10" cols="7" 
                   type="text"
                   name="description"
                   className="block w-full mt-1 px-2 border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                   onChange={handleChange}
                   value={formData.description}
                 />
-                {errors.status && (
-                  <span className="text-red-500">{errors.status}</span>
+                {errors.description && (
+                  <span className="text-red-500">{errors.description}</span>
                 )}
               </div>
             </div>

@@ -23,14 +23,14 @@ const ConfirmOTP = () => {
     // You can add your OTP verification logic here
     console.log('OTP Submitted:', otp);
     // Reset the OTP input
-    const res =await (await fetch("http://localhost:5000/confirmotp",{method:'POST',credentials:'include',body:new URLSearchParams({otp})})).json();
+    const res =await (await fetch("https://notebuddy-backend.onrender.com/confirmotp",{method:'POST',credentials:'include',body:new URLSearchParams({otp})})).json();
     console.log(res);
     if(res==="true"){
-      alert("Your  Resquest has been send to the provider.");
+      alert("Your Resquest has been send to the provider.");
       navigate("/home");
     }
     else if(res==="Already requested"){
-      alert("ALready Requested");
+      alert("Already Requested");
       navigate('/home')
     }
     else{
@@ -62,7 +62,7 @@ const ConfirmOTP = () => {
           <div className="mt-4">
             <button
               type="submit"
-              className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:ring-blue-200"
+              className="w-full text-white py-2 px-4 rounded-md btnValue focus:outline-none focus:ring focus:ring-blue-200"
             >
               Confirm
             </button>

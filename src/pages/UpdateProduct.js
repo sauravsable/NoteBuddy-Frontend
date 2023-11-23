@@ -7,6 +7,10 @@ export default function UpdateProduct() {
     subject: '',
     description: '',
   });
+  const [semester, setsemester] = useState('');
+  const [subject, setsubject] = useState('');
+  const [description, setdescription] = useState('');
+
   const params = useParams();
   const navigate = useNavigate();
 
@@ -21,7 +25,7 @@ export default function UpdateProduct() {
   const getproductdetails = async () => {
     try {
       const response = await fetch(
-        `http://localhost:5000/getproducttoupdate/${params.id}`,
+        `https://notebuddy-backend.onrender.com/getproducttoupdate/${params.id}`,
         {
           method: 'GET',
           headers: {
@@ -52,19 +56,19 @@ export default function UpdateProduct() {
     getproductdetails();
   });
 
-  const updatedata = async (e) => {
-    e.preventDefault();
+  const updatedata = async () => {
+
   
     try {
       const response = await fetch(
-        `http://localhost:5000/updateproduct/${params.id}`,
+        `https://notebuddy-backend.onrender.com/updateproduct/${params.id}`,
         {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
           },
           credentials: 'include', // This sends cookies with the request
-          body: JSON.stringify(formData),
+          body: JSON.stringify({semester,subject,description}),
         }
       );
   
@@ -81,20 +85,12 @@ export default function UpdateProduct() {
   };
   
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
   return (
     <div>
       <div className="flex flex-col items-center min-h-screen pt-6 sm:justify-center sm:pt-0 bg-gray-50">
         <div>
           <a href="/">
-            <h3 className="text-4xl font-bold text-purple-600">
+            <h3 className="text-4xl font-bold text-blue-950">
               Update Notes
             </h3>
           </a>
@@ -110,11 +106,10 @@ export default function UpdateProduct() {
               </label>
               <div className="flex flex-col items-start">
                 <input
-                  type="number"
-                  name="semester"
+                  type='text'
                   className="block w-full mt-1 px-2 border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                  onChange={handleChange}
-                  value={formData.semester}
+                  onChange={(e)=>{setsemester(e.target.value)}}
+                  value={semester}
                 />
               </div>
             </div>
@@ -128,16 +123,15 @@ export default function UpdateProduct() {
               <div className="flex flex-col items-start">
                 <input
                   type="text"
-                  name="subject"
                   className="block w-full mt-1 px-2 border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                  onChange={handleChange}
-                  value={formData.subject}
+                  onChange={(e)=>{setsubject(e.target.value)}}
+                  value={subject}
                 />
               </div>
             </div>
             <div className="mt-4">
               <label
-                htmlFor="status"
+                htmlFor="description"
                 className="block text-sm font-medium text-gray-700 undefined"
               >
                 Description
@@ -145,7 +139,6 @@ export default function UpdateProduct() {
               <div className="flex flex-col items-start">
                 <textarea
                   type="text"
-                  name="status"
                   className="block w-full mt-1 px-2 border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                   onChange={handleChange}
                   value={formData.description}
@@ -154,9 +147,9 @@ export default function UpdateProduct() {
             </div>
             <div className="flex items-center justify-end mt-4">
               <button
-                type="submit"
-                className="inline-flex items-center px-4 py-2 ml-4 text-xs font-semibold tracking-widest text-white uppercase transition duration-150 ease-in-out bg-gray-900 border border-transparent rounded-md active:bg-gray-900 false"
-                onClick={(e) => updatedata(e)}
+                // type="submit"
+                className="inline-flex btnValue items-center px-4 py-2 ml-4 text-xs font-semibold tracking-widest text-white uppercase transition duration-150 ease-in-out border border-transparent rounded-md active:bg-gray-900 false"
+                onClick={updatedata}
               >
                 Update
               </button>
