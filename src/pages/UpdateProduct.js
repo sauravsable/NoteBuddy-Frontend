@@ -5,7 +5,7 @@ export default function UpdateProduct() {
   const [formData, setFormData] = useState({
     semester: '',
     subject: '',
-    status: '',
+    description: '',
   });
   const params = useParams();
   const navigate = useNavigate();
@@ -33,11 +33,11 @@ export default function UpdateProduct() {
   
       if (response.status === 200) {
         const data = await response.json();
-        const { semester, subject, status } = data;
+        const { semester, subject, description } = data;
         setFormData({
           semester,
           subject,
-          status,
+          description,
         });
       } else {
         console.error('Error:', response.statusText);
@@ -140,15 +140,15 @@ export default function UpdateProduct() {
                 htmlFor="status"
                 className="block text-sm font-medium text-gray-700 undefined"
               >
-                Status
+                Description
               </label>
               <div className="flex flex-col items-start">
-                <input
+                <textarea
                   type="text"
                   name="status"
                   className="block w-full mt-1 px-2 border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
                   onChange={handleChange}
-                  value={formData.status}
+                  value={formData.description}
                 />
               </div>
             </div>
