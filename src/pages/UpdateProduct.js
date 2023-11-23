@@ -140,7 +140,7 @@ export default function UpdateProduct() {
                 <textarea
                   type="text"
                   className="block w-full mt-1 px-2 border-2 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
-                  onChange={handleChange}
+                  onChange={(e)=>{setdescription(e.target.value)}}
                   value={formData.description}
                 />
               </div>
